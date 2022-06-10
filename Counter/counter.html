@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+   <h1></h1> 
+   <button>Increment</button>
+   <button>Decrement</button>
+</body>
+</html>
+
+<script>
+    let counter=(localStorage.getItem("localcounter") || 0);
+    document.querySelector("h1").innerText=counter;
+    document.querySelector("button").addEventListener("click", incFunc);
+    document.querySelector("button+button").addEventListener("click", decFunc);
+    function incFunc() {
+        counter++;
+        document.querySelector("h1").innerText=counter;
+        localStorage.setItem("localcounter", counter);
+    }
+    function decFunc() {
+        counter--;
+        document.querySelector("h1").innerText=counter;
+        localStorage.setItem("localcounter", counter);
+    }
+</script>
